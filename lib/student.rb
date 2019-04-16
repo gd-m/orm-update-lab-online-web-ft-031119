@@ -59,6 +59,7 @@ class Student
   end
 
   def self.find_by_name(name)
+<<<<<<< HEAD
     sql = "SELECT * FROM students WHERE name = ? LIMIT 1"
     DB[:conn].execute(sql, name).map do |row|
       self.new_from_db(row)
@@ -73,6 +74,11 @@ class Student
     SQL
 
     DB[:conn].execute(sql, self.name, self.grade, self.id)
+=======
+    sql = "SELECT * FROM students WHERE name = ?"
+    result = DB[:conn].execute(sql, name)
+    found_name = Student.new(result[1],result[2],result[0])
+>>>>>>> 84f45ebcc60f5676d60557028a49be503f34fed6
 
   end
 
